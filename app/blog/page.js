@@ -17,18 +17,19 @@ const Blog = async ({ searchParams }) => {
 
         return (
             <div>
-                <div className="main-title">
-                    <h1>News Page</h1>
+                <div className="main-title min-h-full ">
+                    <h1 className="text-center text-4xl text-gray-800 my-5 font-sans">News Page</h1>
+
                 </div>
-                <div className="grid-container">
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5 p-5 max-w-[1200px] mx-auto opacity-100 transform scale-100 transition-opacity transition-transform duration-500 ease-in-out">
                     {posts.length > 0 ? (
                         posts.map((post) => (
                             <Link
-                                className="grid-card"
+                                className="p-5 border-none rounded-lg bg-white shadow-lg transition-transform duration-300 ease-in-out cursor-pointer flex flex-col justify-between h-full"
                                 key={post.id}
                                 href={`/blog/${post.id}`}
                             >
-                                <h2>{post.title}</h2>
+                                <h2 className="mb-4 text-xl text-gray-900 font-semibold font-sans">{post.title}</h2>
                                 <p>{post.body}</p>
                                 <div className="card-footer">
                                     <span className="likes">

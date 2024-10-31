@@ -2,18 +2,17 @@
 export default function Footer() {
 
     return (
-        <div className='footer'>
+       <footer class="w-full">
+    <nav>
+        <ul class="flex text-white p-4 gap-8 items-center justify-center list-none bg-[rgb(1,1,41)] cursor-pointer">
+            <li class="hover:text-[rgb(16,16,224)]">Home</li>
+            <li class="hover:text-[rgb(16,16,224)]">About</li>
+            <li class="hover:text-[rgb(16,16,224)]">Services</li>
+            <li class="hover:text-[rgb(16,16,224)]">Contact</li>
+        </ul>
+    </nav>
 
-            <nav>
-                <ul>
-                    <li>Installation</li>
-                    <li>Overview</li>
-                    <li>Community</li>
-                    <li>Hooks</li>
-                    <li>Contact Us</li>
-                    <li>Help</li>
-                </ul>
-            </nav>
-        </div>
+</footer>
+
     )
 }
