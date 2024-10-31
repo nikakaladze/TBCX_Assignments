@@ -1,20 +1,30 @@
-import React from 'react'
+import React from "react";
 
-export const ProductCardButton = ({ padding, backgroundColor, color, border, borderRadius, fontSize, cursor,margin }) => {
-
+export const ProductCardButton = ({
+  padding,
+  backgroundColor,
+  color,
+  border,
+  borderRadius,
+  fontSize,
+  cursor,
+  margin,
+}) => {
   return (
-    <button style={{
-      padding,
-      backgroundColor,
-      
-      color,
-      border,
-      borderRadius,
-      fontSize,
-      cursor,
-      margin,
+    <button
+      style={{
+        padding,
+        backgroundColor,
 
-
-    }}>Add to cart </button>
-  )
-}
+        color,
+        border,
+        borderRadius,
+        fontSize,
+        cursor,
+        margin,
+      }}
+    >
+      Add to cart{" "}
+    </button>
+  );
+};
