@@ -6,7 +6,7 @@ import Title from "../Components/profile/Title";
 const ProfileCardContainer = () => {
   return (
     <section>
-      <Title/>
+      <Title />
       <div className="flex flex-wrap gap-5 w-full max-w-[1100px] my-5 mx-auto">
         <Profile
           name="David"
@@ -14,7 +14,6 @@ const ProfileCardContainer = () => {
           Email="ChesterfieldD@gmail.com"
           imgAdd={ProfileImages["8"].imageAdd}
           title="Product Owner"
-          
         />
 
         <Profile
@@ -23,7 +22,6 @@ const ProfileCardContainer = () => {
           title="Cloud Engineer"
           lastname="Holloway"
           imgAdd={ProfileImages["0"].imageAdd}
-          
         />
         <Profile
           name="Jon"
@@ -31,7 +29,6 @@ const ProfileCardContainer = () => {
           Email="JonDoee89@gmail.com"
           imgAdd={ProfileImages["1"].imageAdd}
           title="Python Developer"
-   
         />
 
         <Profile
@@ -40,7 +37,6 @@ const ProfileCardContainer = () => {
           Email="Wiliam1991@yahoo.com"
           imgAdd={images2["2"].imageAdd}
           title="UI/UX Designer"
-   
         />
 
         <Profile
@@ -49,7 +45,6 @@ const ProfileCardContainer = () => {
           lastname="Stones"
           Email="Henryhen20@yahoo.com"
           imgAdd={images2["9"].imageAdd}
-   
         />
 
         <Profile
@@ -58,7 +53,6 @@ const ProfileCardContainer = () => {
           Email="HelenMackk@gmail.com"
           imgAdd={ProfileImages["4"].imageAdd}
           title="It Support"
-   
         />
 
         <Profile
@@ -67,7 +61,6 @@ const ProfileCardContainer = () => {
           Email="Gudjonsen.N@yahoo.com"
           imgAdd={ProfileImages["6"].imageAdd}
           title="System Administrator"
-          
         />
 
         <Profile
@@ -76,7 +69,6 @@ const ProfileCardContainer = () => {
           Email="AndrewMac1@yahoo.com"
           imgAdd={ProfileImages["7"].imageAdd}
           title="Network Engineer"
-
         />
 
         <Profile
@@ -85,7 +77,6 @@ const ProfileCardContainer = () => {
           Email="SarahKevin@gmail.com"
           imgAdd={ProfileImages["10"].imageAdd}
           title="Network Engineer"
-          
         />
       </div>
     </section>
