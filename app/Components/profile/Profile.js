@@ -14,15 +14,7 @@ export const Profile = (props) => {
 
 
           <button className="text-white rounded-lg border-none bg-[#1171DF] px-8 py-3 w-full my-2 text-lg cursor-pointer"
-            // color:props.color,
-            // borderRadius:props.borderRadius,
-            // border:props.border,
-            // backgroundColor:props.backgroundColor,
-            // padding:props.padding,
-            // width:props.width,
-            // marginBlock:props.marginBlock,
-            // fontSize:props.fontSize,
-            // cursor:props.cursor
+           
 
           >Read More</button>
         </div>
