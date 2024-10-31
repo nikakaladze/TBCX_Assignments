@@ -6,10 +6,7 @@ export const ProductListCardTitle = (props) => {
   return (
     <div>
 
-      <h4 style={{
-        marginBottom: props.marginBottom,
-        color: props.color
-      }}>{props.title}</h4>
+      <h4 className='mb-2 text-center text-black text-2xl'>{props.title}</h4>
     </div>
   )
 }

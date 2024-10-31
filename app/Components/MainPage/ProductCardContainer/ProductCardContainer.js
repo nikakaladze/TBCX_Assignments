@@ -5,7 +5,7 @@ import { images } from "../productCardImages/img";
 export const ProductCardContainer = () => {
   return (
     <>
-    <div className="productCardContainer">
+      <div className="grid grid-cols-3 gap-5 max-w-[1100px] mx-auto pt-10">
      <ProductListCard
        width="300px"
        border="1px solid grey"
