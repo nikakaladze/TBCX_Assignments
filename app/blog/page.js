@@ -31,8 +31,8 @@ const Blog = async ({ searchParams }) => {
                             >
                                 <h2 className="mb-4 text-xl text-gray-900 font-semibold font-sans">{post.title}</h2>
                                 <p>{post.body}</p>
-                                <div className="card-footer">
-                                    <span className="likes">
+                                <div className="flex justify-between items-center mt-5 text-gray-500 text-sm">
+                                    <span className="flex items-center">
                                         <svg
                                             viewBox="0 0 24 24"
                                             fill="currentColor"
@@ -43,7 +43,7 @@ const Blog = async ({ searchParams }) => {
                                         </svg>
                                         {post.reactions.likes} Likes
                                     </span>
-                                    <span className="views">
+                                    <span className="flex items-center">
                                         <svg
                                             viewBox="0 0 24 24"
                                             fill="currentColor"
@@ -61,31 +61,31 @@ const Blog = async ({ searchParams }) => {
                         <p>No posts available</p>
                     )}
                 </div>
-                <div className="pagination_Container">
-                    <div className="pagination">
-                        <div className="Button_cont">
+                <div className=" flex w-full justify-center bg-gray-50 border-t border-gray-300">
+                    <div className="max-w-[1200px] w-full flex justify-between items-center font-sans px-5 py-2.5">
+                        <div className=" flex justify-center items-center gap-5">
                             <Link
                                 href={`?page=${currentPage - 1}`}
                                 disabled={currentPage === 1}
-                                className="prev-button"
+                                className="bg-transparent border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-md cursor-pointer text-base flex items-center justify-center transition-colors duration-300 font-bold"
                             >
                                 ←
                             </Link>
                             <Link
                                 href={`?page=${currentPage + 1}`}
                                 disabled={currentPage === totalPages}
-                                className="next-button"
+                                className="bg-transparent border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-md cursor-pointer text-base flex items-center justify-center transition-colors duration-300 font-bold"
                             >
                                 Next page →
                             </Link>
                         </div>
-                        <div className="page-info">
+                        <div className="flex items-center gap-1.5 text-base text-gray-700">
                             <span>Page</span>
                             <input
                                 type="text"
                                 value={currentPage}
                                 readOnly
-                                className="page-input"
+                                className="w-10 h-8 text-center border border-gray-300 rounded text-base text-gray-800 bg-white mx-1.5"
                             />
                             <span>of {totalPages}</span>
                         </div>
