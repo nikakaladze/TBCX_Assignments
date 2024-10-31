@@ -6,31 +6,7 @@ import { ProductCardButton } from '../../MainPage/productCardButton/ProductCardB
 
 export const ProductListCard = (props) => {
   return (
-    <div style={{
-      border: props.border,
-      padding: props.padding,
-      borderRadius: props.borderRadius,
-      width: props.width,
-      backgroundColor: props.backgroundColor,
-      display: 'grid',
-      gap: '10px',
-      padding: '20px',
-      border: 'none',
-      borderRadius: "12px",
-      backgroundColor: 'white',
-      boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-      transition: 'transform 0.3s ease, box - shadow 0.3s ease',
-      cursor: " pointer",
-      display: "flex",
-      flexDirection: 'column',
-      justifyContent: "spaceBetween",
-      height:'100%'
-      
-      
-
-
-
-    }}>
+    <div className='border-none p-5 rounded-lg w-[300px] bg-white flex flex-col gap-2 shadow-lg cursor-pointer h-full'>
       <ProductListCardTitle title={props.title} marginBottom={props.marginBottom} color={props.color} />
       <ProductCardImages max-width='120px' borderRadius="5px" imageUrl={props.imageUrl} />
 
