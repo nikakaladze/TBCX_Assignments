@@ -16,21 +16,21 @@ export default async function PostDetail({ params }) {
     const post = await response.json();
 
     return (
-        <div className="container">
-            <h1 className="text-center text-4xl text-gray-800 my-5 font-sans">{post.title}</h1>
-            <p className="body">{post.body}</p>
+        <div className="max-w-[800px] mx-auto p-5 font-sans bg-gray-100 rounded-lg shadow-md flex flex-col gap-2 h-screen justify-center ">
+            <h1 className="text-2xl font-bold text-gray-800 mb-4">{post.title}</h1>
+            <p className="text-[1.1rem] leading-7 text-gray-700 mb-6">{post.body}</p>
 
             
-            <div className="reactions">
+            <div className="flex flex-col gap-4 justify-between py-3">
                 <span>Likes: {post.reactions.likes}</span>
                 <span>Dislikes: {post.reactions.dislikes}</span>
             </div>
 
             
-            <p className="views">Views: {post.views}</p>
-            <ul className="tags">
+            <p className="text-center text-base text-gray-500">Views: {post.views}</p>
+            <ul className="flex gap-2 list-none p-0">
                 {post.tags.map((tag, index) => (
-                    <li key={index}>#{tag}</li>
+                    <li key={index} className="px-3 py-1.5 bg-gray-300 rounded-full text-[0.9rem] text-gray-700">#{tag}</li>
                 ))}
             </ul>
         </div>
