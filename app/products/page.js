@@ -82,16 +82,19 @@ const Products = () => {
       </div>
 
       <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
-          {loading ? (
-            <p>Loading...</p>
-          ) : products.length > 0 ? (
-            products.map((product) => (
-              <ProductCard key={product.id} product={product} className="border border-gray-300 rounded-lg p-4 text-center duration-300 ease-in-out shadow-sm"/>
-            ))
-          ) : (
-            <p>No products found</p>
-          )}
-        
+        {loading ? (
+          <p>Loading...</p>
+        ) : products.length > 0 ? (
+          products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              className="border border-gray-300 rounded-lg p-4 text-center duration-300 ease-in-out shadow-sm"
+            />
+          ))
+        ) : (
+          <p>No products found</p>
+        )}
       </div>
     </div>
   );
