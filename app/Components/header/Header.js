@@ -1,4 +1,3 @@
-import ThemeSwitcher from "@/app/ThemeSwitcher";
 import Link from "next/link";
 
 export default function Header() {
