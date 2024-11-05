@@ -10,13 +10,13 @@ const AuthButton = () => {
     const { user } = useUser();
 
     return user ? (
-        <a href="/api/auth/logout">
+        
             <LogOut />
-        </a>
+        
     ) : (
-            <a href="/api/auth/login" >
+            
            <Login />
-        </a>
+        
     );
 };
 
