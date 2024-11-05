@@ -10,7 +10,6 @@ const Products = () => {
   const [sortOrder, setSortOrder] = useState("asc");
   const [loading, setLoading] = useState(false);
 
-  // debounce ფუნქცია
   const debounce = (func, delay) => {
     let timeout;
     return (...args) => {
@@ -19,7 +18,6 @@ const Products = () => {
     };
   };
 
-  // პროდუქტების სიის გამოძახება API-დან
   const fetchProducts = async (
     searchTerm = "",
     sortBy = "title",
