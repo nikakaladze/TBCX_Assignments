@@ -1,4 +1,3 @@
-// components/ThemeSwitcher.js
 "use client"
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
@@ -6,32 +5,54 @@ import { useEffect, useState } from 'react'
 export default function ThemeSwitcher() {
     const { theme, setTheme, systemTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
-    // Ensures this component only renders on the client to avoid hydration issues
     useEffect(() => setMounted(true), [])
 
     if (!mounted) return null
 
-    // Determine the effective theme to apply for the toggle
     const currentTheme = theme === 'system' ? systemTheme : theme
 
-    // Toggle between light and dark mode
-    const toggleTheme = () => {
-        setTheme(currentTheme === 'dark' ? 'light' : 'dark')
+    const toggleDropdown = () => setIsOpen(!isOpen)
+
+    const handleThemeChange = (mode) => {
+        setTheme(mode)
+        setIsOpen(false)
     }
 
     return (
-        <div className="flex items-center space-x-2">
-            <span className="text-sm">{currentTheme === 'dark' ? '🌙 Dark Mode' : '🌞 Light Mode'}</span>
+        <div className="relative inline-block text-left">
             <button
-                onClick={toggleTheme}
-                className={`w-12 h-6 flex items-center bg-gray-300 dark:bg-gray-600 rounded-full p-1`}
+                onClick={toggleDropdown}
+                className="flex items-center p-2 bg-gray-200 dark:bg-gray-700 rounded-md shadow-md"
             >
-                <div
-                    className={`bg-white dark:bg-gray-800 w-4 h-4 rounded-full shadow-md transform transition-transform ${currentTheme === 'dark' ? 'translate-x-6' : 'translate-x-0'
-                        }`}
-                />
+                {currentTheme === 'light' && '🌞 light'}
+                {currentTheme === 'dark' && '🌙 dark'}
+                {theme === 'system' && '🖥️ system'}
             </button>
+
+            {isOpen && (
+                <div className="absolute mt-2 w-28 bg-gray-200 dark:bg-gray-700 rounded-md shadow-lg">
+                    <div
+                        onClick={() => handleThemeChange('light')}
+                        className="flex items-center p-2 hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer rounded-t-md"
+                    >
+                        🌞 light
+                    </div>
+                    <div
+                        onClick={() => handleThemeChange('dark')}
+                        className="flex items-center p-2 hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer"
+                    >
+                        🌙 dark
+                    </div>
+                    <div
+                        onClick={() => handleThemeChange('system')}
+                        className="flex items-center p-2 hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer rounded-b-md"
+                    >
+                        🖥️ system
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

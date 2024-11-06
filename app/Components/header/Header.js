@@ -10,6 +10,7 @@ export default function Header() {
       <nav>
         <div className="main-container w-full flex justify-end py-5 bg-[#030127] items-center text-white cursor-pointer">
           <div className="end">
+        <ThemeSwitcher />
             <Link href="/">
               <span className="text-[20px] mr-[30px] hover:text-white hover:bg-gradient-to-r from-blue-500 to-green-500 active:bg-gradient-to-r from-blue-500 to-green-500 p-[10px] rounded-[10px]">
                 Home
@@ -39,7 +40,6 @@ export default function Header() {
             </Link>
 
             <AuthButton />
-            <ThemeSwitcher />
 
           </div>
         </div>

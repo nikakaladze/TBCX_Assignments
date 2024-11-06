@@ -35,8 +35,8 @@ const Blog = async ({ searchParams }) => {
                   {post.title}
                 </h2>
                 <p>{post.body}</p>
-                <div className="flex justify-between items-center mt-5 text-gray-500 text-sm">
-                  <span className="flex items-center">
+                <div className="flex justify-between items-center mt-5 text-gray-500 text-sm ">
+                  <span className="flex items-center dark:bg-gray-800 text-gray-900">
                     <svg
                       viewBox="0 0 24 24"
                       fill="currentColor"
