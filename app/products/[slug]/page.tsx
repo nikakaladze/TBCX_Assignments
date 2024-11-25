@@ -1,6 +1,5 @@
 import React from "react";
 
-// Server-side function to generate static params for product pages
 export async function generateStaticParams() {
   const response = await fetch("https://dummyjson.com/products");
   const data = await response.json();
