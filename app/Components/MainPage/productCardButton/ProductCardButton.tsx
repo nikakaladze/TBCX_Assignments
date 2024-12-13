@@ -1,6 +1,17 @@
 import React from "react";
 
-export const ProductCardButton = ({
+interface ProductCardButtonProps {
+  padding?: string;
+  backgroundColor?: string;
+  color?: string;
+  border?: string;
+  borderRadius?: string;
+  fontSize?: string;
+  cursor?: string;
+  margin?: string;
+}
+
+export const ProductCardButton: React.FC<ProductCardButtonProps> = ({
   padding,
   backgroundColor,
   color,
@@ -15,7 +26,6 @@ export const ProductCardButton = ({
       style={{
         padding,
         backgroundColor,
-
         color,
         border,
         borderRadius,
@@ -24,7 +34,7 @@ export const ProductCardButton = ({
         margin,
       }}
     >
-      Add to cart{" "}
+      Add to cart
     </button>
   );
 };

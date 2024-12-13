@@ -1,8 +1,10 @@
 import React from "react";
-import { ProductListCard } from "../../MainPage/productListCard/ProductListCard";
+import { ProductListCard } from "../productListCard/ProductListCard";
 import { images } from "../productCardImages/img";
 
-export const ProductCardContainer = () => {
+interface ProductCardContainerProps { }
+
+export const ProductCardContainer: React.FC<ProductCardContainerProps> = () => {
   return (
     <>
       <div className="grid grid-cols-3 gap-5 max-w-[1100px] mx-auto pt-10">
@@ -36,7 +38,7 @@ export const ProductCardContainer = () => {
           border="1px solid grey"
           padding="20px"
           borderRadius="5px"
-          title=" Jacket"
+          title="Jacket"
           Price="109,89$"
           Size="XS-L"
           imageUrl={images["2"].imgUrl}
