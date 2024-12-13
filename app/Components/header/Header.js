@@ -1,10 +1,8 @@
 import Link from "next/link";
-
 import AuthButton from "./AuthButton";
 import ThemeSwitcher from "../ThemeSwitcher";
 
 export default function Header() {
-
   return (
     <>
       <nav>
@@ -33,7 +31,7 @@ export default function Header() {
                 Contact
               </span>
             </Link>
-            <Link href="/products">
+            <Link href={"/products"}>
               <span className="text-[20px] mr-[30px] hover:text-white hover:bg-gradient-to-r from-blue-500 to-green-500 active:bg-gradient-to-r from-blue-500 to-green-500 p-[10px] rounded-[10px]">
                 Products
               </span>

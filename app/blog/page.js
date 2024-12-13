@@ -2,7 +2,6 @@ import Link from "next/link";
 
 const POSTS_PER_PAGE = 9;
 
-// Server-side fetching directly in the component
 const Blog = async ({ searchParams }) => {
   const currentPage = parseInt(searchParams.page) || 1;
   const postsUrl = `https://dummyjson.com/posts?limit=${POSTS_PER_PAGE}&skip=${

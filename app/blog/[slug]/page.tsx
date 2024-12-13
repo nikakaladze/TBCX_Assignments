@@ -1,19 +1,35 @@
-// Generate static params for static generation of each post
-export async function generateStaticParams() {
+export type Post = {
+  id: number;
+  title: string;
+  body: string;
+  reactions: {
+    likes: number;
+    dislikes: number;
+  };
+  views: number;
+  tags: string[];
+};
+
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const response = await fetch("https://dummyjson.com/posts");
-  const data = await response.json();
+  const data: { posts: Post[] } = await response.json();
 
   return data.posts.map((post) => ({
-    slug: post.id.toString(), // Generate slug for each post
+    slug: post.id.toString(),
   }));
 }
 
-// Server-side component for rendering post details
-export default async function PostDetail({ params }) {
+export type PostDetailProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export default async function PostDetail({ params }: PostDetailProps) {
   const { slug } = params;
 
   const response = await fetch(`https://dummyjson.com/posts/${slug}`);
-  const post = await response.json();
+  const post: Post = await response.json();
 
   return (
     <div className="max-w-[800px] mx-auto p-5 font-sans bg-gray-100 rounded-lg shadow-md flex flex-col gap-2 h-screen justify-center ">

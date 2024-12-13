@@ -1,18 +1,29 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import ProductCard from "../Components/product/ProductCard";
-// import "./Products.css";
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState("title");
-  const [sortOrder, setSortOrder] = useState("asc");
-  const [loading, setLoading] = useState(false);
+// Define the product type
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  rating: number;
+  [key: string]: any; 
+};
 
-  const debounce = (func, delay) => {
-    let timeout;
-    return (...args) => {
+const Products: React.FC = () => {
+  const [products, setProducts] = useState < Product[] > ([]);
+  const [searchTerm, setSearchTerm] = useState < string > ("");
+  const [sortBy, setSortBy] = useState < string > ("title");
+  const [sortOrder, setSortOrder] = useState < string > ("asc");
+  const [loading, setLoading] = useState < boolean > (false);
+
+  const debounce = <T extends (...args: any[]) => void>(
+    func: T,
+    delay: number
+  ): ((...args: Parameters<T>) => void) => {
+    let timeout: NodeJS.Timeout;
+    return (...args: Parameters<T>) => {
       clearTimeout(timeout);
       timeout = setTimeout(() => func(...args), delay);
     };
@@ -29,7 +40,7 @@ const Products = () => {
     try {
       const response = await fetch(productsUrl);
       const data = await response.json();
-      setProducts(data.products);
+      setProducts(data.products || []);
     } catch (error) {
       console.error("Failed to fetch products:", error);
     } finally {
@@ -37,12 +48,10 @@ const Products = () => {
     }
   };
 
-  // ძებნის ღირებულების ცვლილების დამუშავება
-  const handleSearch = debounce((value) => {
+  const handleSearch = debounce((value: string) => {
     setSearchTerm(value);
-  }, 500); // 500 მილიწამი სიფრთხილის ფუნქციისთვის (debounce)
+  }, 500);
 
-  // საწყისი მონაცემების ჩატვირთვა
   useEffect(() => {
     fetchProducts(searchTerm, sortBy, sortOrder);
   }, [searchTerm, sortBy, sortOrder]);
