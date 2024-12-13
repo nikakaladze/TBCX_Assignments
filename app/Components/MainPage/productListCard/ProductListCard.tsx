@@ -2,8 +2,7 @@ import React from "react";
 import { ProductListCardTitle } from "../productListCardTitle/ProductListCardTitle";
 import { ProductCardImages } from "../productCardImages/ProductCardImages";
 import { ProductCardDesc } from "../productCardDesc/ProductCardDesc";
-import { ProductCardButton } from "../productCardButton/ProductCardButton";
-
+import { ProductCardButton } from "../../MainPage/productCardButton/ProductCardButton";
 
 
 interface ProductListCardProps {
