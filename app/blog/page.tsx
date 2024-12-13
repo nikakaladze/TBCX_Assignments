@@ -2,22 +2,38 @@ import Link from "next/link";
 
 const POSTS_PER_PAGE = 9;
 
-const Blog = async ({ searchParams }) => {
-  const currentPage = parseInt(searchParams.page) || 1;
+type Post = {
+  id: number;
+  title: string;
+  body: string;
+  reactions: {
+    likes: number;
+  };
+  views: number;
+};
+
+type BlogProps = {
+  searchParams: {
+    page?: string;
+  };
+};
+
+const Blog = async ({ searchParams }: BlogProps) => {
+  const currentPage = parseInt(searchParams.page || "1");
   const postsUrl = `https://dummyjson.com/posts?limit=${POSTS_PER_PAGE}&skip=${
     (currentPage - 1) * POSTS_PER_PAGE
   }`;
 
   try {
     const response = await fetch(postsUrl);
-    const data = await response.json();
+    const data: { posts: Post[]; total: number } = await response.json();
     const posts = data.posts || [];
     const totalPosts = data.total || 0;
     const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
 
     return (
       <div>
-        <div className="main-title min-h-full ">
+        <div className="main-title min-h-full">
           <h1 className="text-center text-4xl text-gray-800 my-5 font-sans">
             News Page
           </h1>
@@ -34,7 +50,7 @@ const Blog = async ({ searchParams }) => {
                   {post.title}
                 </h2>
                 <p>{post.body}</p>
-                <div className="flex justify-between items-center mt-5 text-gray-500 text-sm ">
+                <div className="flex justify-between items-center mt-5 text-gray-500 text-sm">
                   <span className="flex items-center dark:bg-gray-800 text-gray-900">
                     <svg
                       viewBox="0 0 24 24"
@@ -64,20 +80,24 @@ const Blog = async ({ searchParams }) => {
             <p>No posts available</p>
           )}
         </div>
-        <div className=" flex w-full justify-center bg-gray-50 border-t border-gray-300">
+        <div className="flex w-full justify-center bg-gray-50 border-t border-gray-300">
           <div className="max-w-[1200px] w-full flex justify-between items-center font-sans px-5 py-2.5">
-            <div className=" flex justify-center items-center gap-5">
+            <div className="flex justify-center items-center gap-5">
               <Link
                 href={`?page=${currentPage - 1}`}
-                disabled={currentPage === 1}
-                className="bg-transparent border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-md cursor-pointer text-base flex items-center justify-center transition-colors duration-300 font-bold"
+                className={`bg-transparent border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-md cursor-pointer text-base flex items-center justify-center transition-colors duration-300 font-bold ${
+                  currentPage === 1 ? "pointer-events-none opacity-50" : ""
+                }`}
               >
                 ←
               </Link>
               <Link
                 href={`?page=${currentPage + 1}`}
-                disabled={currentPage === totalPages}
-                className="bg-transparent border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-md cursor-pointer text-base flex items-center justify-center transition-colors duration-300 font-bold"
+                className={`bg-transparent border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-md cursor-pointer text-base flex items-center justify-center transition-colors duration-300 font-bold ${
+                  currentPage === totalPages
+                    ? "pointer-events-none opacity-50"
+                    : ""
+                }`}
               >
                 Next page →
               </Link>
@@ -96,7 +116,7 @@ const Blog = async ({ searchParams }) => {
         </div>
       </div>
     );
-  } catch (error) {
+  } catch (error: any) {
     return <p>Error loading posts: {error.message}</p>;
   }
 };
