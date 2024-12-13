@@ -1,4 +1,6 @@
-export const Contact = () => {
+import React from "react";
+
+export const Contact: React.FC = () => {
   return (
     <>
       <div className="flex justify-center items-center min-h-screen bg-[rgb(1,82,148)] bg-no-repeat">
@@ -9,12 +11,12 @@ export const Contact = () => {
             <input
               type="text"
               placeholder="UserName"
-              className="w-full h-full bg-transparent  outline-none border-2 border-white/20 rounded-full text-white px-5 py-2.5 pr-12 placeholder-white"
+              className="w-full h-full bg-transparent outline-none border-2 border-white/20 rounded-full text-white px-5 py-2.5 pr-12 placeholder-white"
             />
             <input
-              type="text"
-              placeholder="password"
-              className="w-full h-full bg-transparent  outline-none border-2 border-white/20 rounded-full text-white px-5 py-2.5 pr-12 placeholder-white my-5"
+              type="password"
+              placeholder="Password"
+              className="w-full h-full bg-transparent outline-none border-2 border-white/20 rounded-full text-white px-5 py-2.5 pr-12 placeholder-white my-5"
             />
           </div>
 
@@ -33,4 +35,5 @@ export const Contact = () => {
     </>
   );
 };
+
 export default Contact;
