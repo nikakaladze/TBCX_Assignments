@@ -1,24 +1,25 @@
-"use client"
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+"use client";
+
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export default function ThemeSwitcher() {
-    const { theme, setTheme, systemTheme } = useTheme()
-    const [mounted, setMounted] = useState(false)
-    const [isOpen, setIsOpen] = useState(false)
+    const { theme, setTheme, systemTheme } = useTheme();
+    const [mounted, setMounted] = useState < boolean > (false);
+    const [isOpen, setIsOpen] = useState < boolean > (false);
 
-    useEffect(() => setMounted(true), [])
+    useEffect(() => setMounted(true), []);
 
-    if (!mounted) return null
+    if (!mounted) return null;
 
-    const currentTheme = theme === 'system' ? systemTheme : theme
+    const currentTheme = theme === 'system' ? systemTheme : theme;
 
-    const toggleDropdown = () => setIsOpen(!isOpen)
+    const toggleDropdown = () => setIsOpen(!isOpen);
 
-    const handleThemeChange = (mode) => {
-        setTheme(mode)
-        setIsOpen(false)
-    }
+    const handleThemeChange = (mode: string) => {
+        setTheme(mode);
+        setIsOpen(false);
+    };
 
     return (
         <div className="relative inline-block text-left">
@@ -54,5 +55,5 @@ export default function ThemeSwitcher() {
                 </div>
             )}
         </div>
-    )
+    );
 }
