@@ -1,6 +1,11 @@
+
 import React from "react";
 
-export const ProductCardImages = (props) => {
+interface ProductCardImagesProps {
+  imageUrl: string;
+}
+
+export const ProductCardImages: React.FC<ProductCardImagesProps> = (props) => {
   return (
     <div>
       <img src={props.imageUrl} alt="Bombers" className="w-[200px] h-[200px]" />

@@ -2,9 +2,20 @@ import React from "react";
 import { ProductListCardTitle } from "../productListCardTitle/ProductListCardTitle";
 import { ProductCardImages } from "../productCardImages/ProductCardImages";
 import { ProductCardDesc } from "../productCardDesc/ProductCardDesc";
-import { ProductCardButton } from "../../MainPage/productCardButton/ProductCardButton";
+import { ProductCardButton } from "../productCardButton/ProductCardButton";
 
-export const ProductListCard = (props) => {
+
+
+interface ProductListCardProps {
+  title: string;
+  marginBottom?: string;
+  color?: string;
+  imageUrl: string;
+  Price: string;
+  Size: string;
+}
+
+export const ProductListCard: React.FC<ProductListCardProps> = (props) => {
   return (
     <div className="border-none p-5 rounded-lg w-[300px] bg-white flex flex-col gap-2 shadow-lg cursor-pointer h-full">
       <ProductListCardTitle
@@ -17,7 +28,6 @@ export const ProductListCard = (props) => {
         borderRadius="5px"
         imageUrl={props.imageUrl}
       />
-
       <ProductCardDesc
         Price={props.Price}
         Size={props.Size}
@@ -26,7 +36,6 @@ export const ProductListCard = (props) => {
         marginRight="30px"
         color={props.color}
       />
-
       <ProductCardButton
         padding="10px 32px"
         fontSize="18px"
