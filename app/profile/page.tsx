@@ -1,31 +1,28 @@
+import React from "react";
 import Profile from "../Components/profile/Profile";
 import Title from "../Components/profile/Title";
-import ProfileImages from '../../app/Components/profile/ProfileImages';
+import ProfileImages from "../../app/Components/profile/ProfileImages";
 
-const ProfileCardContainer = async(props) => {
-
-
-    return(
-      <>
-
+const ProfileCardContainer: React.FC = () => {
+  return (
+    <>
       <Title />
       <section className="flex flex-wrap gap-4 mx-auto max-w-5xl">
         <Profile
           name="Steve"
           Email="Steve1999@yahoo.com"
-          title="Director" 
+          title="Director"
           lastname="White"
           imgAdd={ProfileImages["8"].imageAdd}
         />
 
-        <Profile 
-          name='Max'
-          Email='MAx1009@gmail.com'
+        <Profile
+          name="Max"
+          Email="MAx1009@gmail.com"
           title="Cloud Engineer"
           lastname="Holloway"
           imgAdd={ProfileImages["0"].imageAdd}
         />
-
 
         <Profile
           name="Jon"
@@ -35,15 +32,13 @@ const ProfileCardContainer = async(props) => {
           title="Python Developer"
         />
 
-
         <Profile
-          name="Wiliams"
+          name="Williams"
           lastname="Rogers"
           Email="Wiliam1991@yahoo.com"
           imgAdd={ProfileImages["2"].imageAdd}
           title="UI/UX Designer"
         />
-
 
         <Profile
           title="Backend Developer"
@@ -58,9 +53,8 @@ const ProfileCardContainer = async(props) => {
           lastname="Mackenly"
           Email="HelenMackk@gmail.com"
           imgAdd={ProfileImages["4"].imageAdd}
-          title="It Support"
+          title="IT Support"
         />
-
 
         <Profile
           name="Noah"
@@ -69,7 +63,6 @@ const ProfileCardContainer = async(props) => {
           imgAdd={ProfileImages["6"].imageAdd}
           title="System Administrator"
         />
-
 
         <Profile
           name="Andrew"
@@ -86,12 +79,8 @@ const ProfileCardContainer = async(props) => {
           title="Network Engineer"
         />
       </section>
-      </>
-
-      
-      
-  )
-
+    </>
+  );
 };
 
 export default ProfileCardContainer;
