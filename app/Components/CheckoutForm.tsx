@@ -8,7 +8,7 @@ import CustomDonationInput from "./CustomDonationInput";
 
 import { formatAmountForDisplay } from "../../utils/stripe-helpers";
 import * as config from "../../config/index";
-import { createCheckoutSession } from "@/actions/stripe";
+import { createCheckoutSession } from "../actions/stripe";
 import getStripe from "../../utils/get-stripejs";
 import {
   EmbeddedCheckout,
