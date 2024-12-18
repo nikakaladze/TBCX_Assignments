@@ -8,12 +8,13 @@ import CustomDonationInput from "./CustomDonationInput";
 
 import { formatAmountForDisplay } from "../../utils/stripe-helpers";
 import * as config from "../../config/index";
-import { createCheckoutSession } from "../actions/stripe";
 import getStripe from "../../utils/get-stripejs";
 import {
   EmbeddedCheckout,
   EmbeddedCheckoutProvider,
 } from "@stripe/react-stripe-js";
+
+import { createCheckoutSession } from "../actions/stripe";
 
 interface CheckoutFormProps {
   uiMode: Stripe.Checkout.SessionCreateParams.UiMode;
