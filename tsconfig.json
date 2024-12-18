@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/[locale]/layout.tsx", "app/Components/footer/Footer.tsx", "app/Components/header/Header.tsx", "app/contact/page.tsx"  ],
+, "app/[locale]/layout.tsx", "app/Components/footer/Footer.tsx", "app/Components/header/Header.tsx", "app/contact/page.tsx", "postcss.config.js"  ],
   "exclude": [
     "node_modules"
   ]
