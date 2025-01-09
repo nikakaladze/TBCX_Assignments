@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ProductCardContainer } from "./Components/MainPage/ProductCardContainer/ProductCardContainer";
-import React from "react";
+import React, { useState } from "react";
 
 export default async function Home(): Promise<JSX.Element> {
+  
   return (
     <>
       <ul className="card-list">
@@ -33,6 +34,7 @@ export default async function Home(): Promise<JSX.Element> {
       </ul>
 
       {/* <ProductCardContainer /> */}
+      
     </>
   );
 }
